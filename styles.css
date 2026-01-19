@@ -1,0 +1,719 @@
+:root {
+  --bg: #06070b;
+  --bg-2: #0e1524;
+  --neon: #27f7c1;
+  --neon-2: #2dd4ff;
+  --hot: #ff6f3c;
+  --hot-2: #ffd166;
+  --ink: #e8f1ff;
+  --muted: rgba(232, 241, 255, 0.7);
+  --glass: rgba(10, 16, 28, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.bg-aurora {
+  position: fixed;
+  inset: -20vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(39, 247, 193, 0.4), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(45, 212, 255, 0.35), transparent 42%),
+    radial-gradient(circle at 40% 80%, rgba(255, 111, 60, 0.35), transparent 48%);
+  filter: blur(0px);
+  z-index: -2;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 120px 120px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.bg-ring {
+  position: fixed;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  border: 2px solid rgba(39, 247, 193, 0.25);
+  box-shadow: 0 0 60px rgba(39, 247, 193, 0.25), inset 0 0 40px rgba(39, 247, 193, 0.15);
+  top: 10%;
+  right: -120px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.hero {
+  padding: 32px 6vw 80px;
+  min-height: 100vh;
+  background:
+    linear-gradient(160deg, rgba(6, 7, 11, 0.94), rgba(6, 7, 11, 0.55)),
+    url("./assets/backgrounds/neon-cyber-1-landscape.png") center/cover no-repeat;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0 32px;
+}
+
+.logo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ghost {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.ghost:hover {
+  color: var(--ink);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background: linear-gradient(120deg, var(--neon), var(--neon-2));
+  color: #041018;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(39, 247, 193, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(39, 247, 193, 0.45);
+}
+
+.cta.small {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+}
+
+.cta.big {
+  font-size: 1.15rem;
+  padding: 16px 36px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  margin: 0 0 16px;
+  letter-spacing: 0.08em;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--neon-2);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.subhead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.cta-row {
+  margin: 24px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mini-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(10, 16, 28, 0.6);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero-media {
+  display: grid;
+  gap: 24px;
+}
+
+.hero-gif {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(39, 247, 193, 0.3);
+}
+
+.hero-gif img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-fighters {
+  position: relative;
+  height: 320px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 50% 40%, rgba(39, 247, 193, 0.18), transparent 70%);
+  overflow: hidden;
+}
+
+.fighter {
+  position: absolute;
+  width: 55%;
+  max-width: 280px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+  animation: float 6s ease-in-out infinite;
+}
+
+.fighter.left {
+  left: 5%;
+  bottom: -10px;
+  animation-delay: 0.2s;
+}
+
+.fighter.right {
+  right: 5%;
+  bottom: -20px;
+  animation-delay: 1.2s;
+}
+
+.glow-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: rgba(4, 16, 24, 0.7);
+  border: 1px solid rgba(39, 247, 193, 0.4);
+  border-radius: 999px;
+}
+
+.hero-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.stat-card {
+  background: rgba(10, 16, 28, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.stat-card.alt {
+  border-color: rgba(255, 209, 102, 0.4);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hot-2);
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 8px 0;
+}
+
+.stat-foot {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.section {
+  padding: 80px 6vw;
+}
+
+.hype-strip {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  padding-top: 40px;
+}
+
+.hype-card {
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 16, 28, 0.8);
+  box-shadow: var(--shadow);
+  animation: rise 0.8s ease both;
+}
+
+.hype-card.banner {
+  padding: 0;
+  overflow: hidden;
+}
+
+.hype-card.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hype-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-head {
+  margin-bottom: 32px;
+}
+
+.section-head h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 12px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.feature-section {
+  background: linear-gradient(160deg, rgba(6, 7, 11, 0.95), rgba(14, 21, 36, 0.8));
+}
+
+.feature-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.feature {
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(10, 16, 28, 0.6);
+}
+
+.feature h3 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.arena {
+  background:
+    linear-gradient(180deg, rgba(6, 7, 11, 0.7), rgba(6, 7, 11, 0.95)),
+    url("./assets/backgrounds/noir-spotlight-1-portrait.png") center/cover no-repeat;
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.arena-content {
+  max-width: 720px;
+}
+
+.arena-visual {
+  margin-top: 32px;
+  max-width: 360px;
+}
+
+.arena-visual img {
+  border-radius: 24px;
+  border: 1px solid rgba(39, 247, 193, 0.2);
+  background: rgba(10, 16, 28, 0.6);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.arena-actions {
+  margin-top: 24px;
+}
+
+.roster-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.roster-grid img {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 16, 28, 0.5);
+  padding: 8px;
+}
+
+.rewards {
+  background: linear-gradient(180deg, rgba(14, 21, 36, 0.95), rgba(6, 7, 11, 0.9));
+}
+
+.rewards-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.reward-card {
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(39, 247, 193, 0.2);
+  background: rgba(8, 12, 22, 0.8);
+}
+
+.reward-card h3 {
+  margin-top: 0;
+}
+
+.reward-card p {
+  color: var(--muted);
+}
+
+.community {
+  background: linear-gradient(120deg, rgba(6, 7, 11, 0.95), rgba(14, 21, 36, 0.95));
+}
+
+.screenshots {
+  background:
+    linear-gradient(180deg, rgba(6, 7, 11, 0.9), rgba(6, 7, 11, 0.98)),
+    url("./assets/backgrounds/landscape/ice-blue-1-landscape.png") center/cover no-repeat;
+}
+
+.screenshot-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 6px 0 12px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.screenshot-track {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  width: max-content;
+  animation: scrollScreens 45s linear infinite;
+}
+
+.screen-card {
+  margin: 0;
+  min-width: 240px;
+  max-width: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(10, 16, 28, 0.75);
+  box-shadow: var(--shadow);
+  display: grid;
+}
+
+.screen-card img {
+  width: 100%;
+  height: auto;
+}
+
+.screen-card figcaption {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.screen-card.tall {
+  max-width: 300px;
+}
+
+.modes {
+  background:
+    linear-gradient(180deg, rgba(6, 7, 11, 0.88), rgba(6, 7, 11, 0.98)),
+    url("./assets/backgrounds/landscape/warm-ring-1-landscape.png") center/cover no-repeat;
+}
+
+.mode-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.mode-card {
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 16, 28, 0.75);
+  box-shadow: var(--shadow);
+  min-height: 220px;
+}
+
+.mode-card.training {
+  background:
+    linear-gradient(150deg, rgba(10, 16, 28, 0.92), rgba(10, 16, 28, 0.7)),
+    url("./assets/backgrounds/portrait/ice-blue-1-portrait.png") center/cover no-repeat;
+}
+
+.mode-card.pvp {
+  background:
+    linear-gradient(150deg, rgba(10, 16, 28, 0.92), rgba(10, 16, 28, 0.7)),
+    url("./assets/backgrounds/portrait/toxic-green-1-portrait.png") center/cover no-repeat;
+}
+
+.mode-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  color: var(--hot-2);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.loop {
+  background:
+    linear-gradient(180deg, rgba(6, 7, 11, 0.88), rgba(6, 7, 11, 0.98)),
+    url("./assets/backgrounds/landscape/toxic-green-1-landscape.png") center/cover no-repeat;
+}
+
+.loop-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-bottom: 24px;
+}
+
+.loop-card {
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(45, 212, 255, 0.25);
+  background: rgba(10, 16, 28, 0.72);
+}
+
+.loop-number {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: var(--neon);
+}
+
+
+.community-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.community-card {
+  display: flex;
+  gap: 16px;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: rgba(10, 16, 28, 0.6);
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.community-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 212, 255, 0.4);
+}
+
+.community-icon {
+  font-size: 1.8rem;
+}
+
+.final-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.final-card {
+  max-width: 720px;
+  text-align: center;
+  padding: 42px 36px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  background: rgba(10, 16, 28, 0.7);
+  box-shadow: var(--shadow);
+}
+
+.final-card h2 {
+  margin-top: 0;
+}
+
+.footer {
+  padding: 30px 6vw 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .nav-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero {
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(6, 7, 11, 0.92), rgba(6, 7, 11, 0.6)),
+      url("./assets/backgrounds/neon-cyber-1-portrait.png") center/cover no-repeat;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.6rem, 10vw, 4.6rem);
+  }
+
+  .cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollScreens {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 700px) {
+  .screenshot-track {
+    animation-duration: 60s;
+  }
+
+  .screen-card {
+    min-width: 200px;
+  }
+}
